@@ -6,23 +6,23 @@
     <description>Recent content on Bounniey&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Feb 2023 12:20:21 +0800</lastBuildDate><atom:link href="https://bounniey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Apr 2023 22:26:30 +0800</lastBuildDate><atom:link href="https://bounniey.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tech1</title>
-      <link>https://bounniey.github.io/posts/tech/tech1/</link>
-      <pubDate>Tue, 21 Feb 2023 12:20:21 +0800</pubDate>
+      <title>Firststudy</title>
+      <link>https://bounniey.github.io/posts/study/firststudy/</link>
+      <pubDate>Tue, 04 Apr 2023 22:26:30 +0800</pubDate>
       
-      <guid>https://bounniey.github.io/posts/tech/tech1/</guid>
+      <guid>https://bounniey.github.io/posts/study/firststudy/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Blog</title>
-      <link>https://bounniey.github.io/posts/blog/blog/</link>
-      <pubDate>Thu, 05 May 2022 00:18:23 +0800</pubDate>
+      <title>First</title>
+      <link>https://bounniey.github.io/posts/tech/first/</link>
+      <pubDate>Tue, 04 Apr 2023 21:37:18 +0800</pubDate>
       
-      <guid>https://bounniey.github.io/posts/blog/blog/</guid>
-      <description></description>
+      <guid>https://bounniey.github.io/posts/tech/first/</guid>
+      <description>我的第一篇 巴拉巴拉</description>
     </item>
     
     <item>
@@ -41,15 +41,6 @@
       
       <guid>https://bounniey.github.io/posts/read/read/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Tech</title>
-      <link>https://bounniey.github.io/posts/tech/tech/</link>
-      <pubDate>Thu, 05 May 2022 00:17:58 +0800</pubDate>
-      
-      <guid>https://bounniey.github.io/posts/tech/tech/</guid>
-      <description>科技代码</description>
     </item>
     
     <item>

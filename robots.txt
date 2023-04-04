@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://bounniey.github.io/sitemap.xml

@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>算法 | Bounniey&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="acwing听的一些算法题">
+<meta name="author" content="Bounniey">
+<link rel="canonical" href="https://bounniey.github.io/posts/tech/%E7%AE%97%E6%B3%95/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a0e754d8a8089ffcea5861fd73209d210cd8a4b89182091da1ca3266cd6f8e79.css" integrity="sha256-oOdU2KgIn/zqWGH9cyCdIQzYpLiRggkdocoyZs1vjnk=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+        onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://bounniey.github.io/img/site.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bounniey.github.io/img/site.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bounniey.github.io/img/site.png">
+<link rel="apple-touch-icon" href="https://bounniey.github.io/img/site.png">
+<link rel="mask-icon" href="https://bounniey.github.io/img/site.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<script defer src="https://unpkg.com/mermaid@8.8.1/dist/mermaid.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = ""; 
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<meta property="og:title" content="算法" />
+<meta property="og:description" content="acwing听的一些算法题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bounniey.github.io/posts/tech/%E7%AE%97%E6%B3%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-05T18:26:34+08:00" />
+<meta property="article:modified_time" content="2023-04-05T18:26:34+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="算法"/>
+<meta name="twitter:description" content="acwing听的一些算法题"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+
+        {
+          "@type": "ListItem",
+          "position":  1 ,
+          "name": "📚文章",
+          "item": "https://bounniey.github.io/posts/"
+        },
+
+        {
+          "@type": "ListItem",
+          "position":  2 ,
+          "name": "技术",
+          "item": "https://bounniey.github.io/posts/tech/"
+        }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "算法",
+      "item": "https://bounniey.github.io/posts/tech/%E7%AE%97%E6%B3%95/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "算法",
+  "name": "算法",
+  "description": "acwing听的一些算法题",
+  "keywords": [
+    ""
+  ],
+  "articleBody": "常用库函数列表 头文件 在算法竞赛中常常设计到各种库函数，头文件一句即可引入较多常用头文件\n#include 其中包括iosteam，vector，utility，algorithm等，以下对这些库常用的函数进行讲解\nvector[可变数组] 初始化\nvector\u003cint\u003e a;//定义一个vector 未初始化 输出\u003e0 vector\u003cint\u003e a(3);//定义一个长度为3的vector 未初始化 输出\u003e0 0 0 vector\u003cint\u003e a(10, 3); //定义一个长度为10，且每个数赋值为3 //将向量b中从下标0 1 2（共三个）的元素赋值给a，a的类型为int型 //它的初始化不和数组一样 vector\u003cint\u003ea(b.begin(),b.begin+3); 遍历方法\nint main () { vector\u003cint\u003e a; for (int i = 0; i \u003c 10; i ++) { a.push_back(i); } //三种遍历vector的方法 for (int i = 0; i \u003c a.size(); i ++) { cout \u003c\u003c a[i] \u003c\u003c ' '; } cout \u003c\u003c endl; for (auto i = a.begin(); i != a.end(); i ++) { cout \u003c\u003c *i \u003c\u003c ' '; } cout \u003c\u003c endl; //C++11的新语法 for (auto x : a) { cout \u003c\u003c x \u003c\u003c ' '; } cout \u003c\u003c endl; return 0; } size()\na.size()， 返回元素个数\nempty()\na.empty() 判断a是否为空，空则返回true，返回bool值\nfront(),back()\na.front() 返回第一个元素\na.back() 返回组后一个元素\npush_back(),pop_back()\na.push_back() 在a的最后一个向量中插入一个元素\na.pop_back() 删除a的最后一个元素\nbegin(),end()\na.begin() 获取向量a的起始地址 a.begin()+2 表示a[2]的地址\na.end() 获取向量a的结束地址\npair [捆绑成对] 初始化\n类似于两个元素的结构体\n//俩种方法初始化 pair\u003cstring,int\u003e p(\"hello\",1); pair\u003cstring,int\u003e p p = make_pair(\"hello\",1); typedef pair\u003cint, int\u003e PII first(),second()\np.first() 取第一个元素\np.second() 取第二个元素\nmake_pair()\n初始化一个pair\nAlgorithm[常用算法函数] sort()\n实现从大到小排序\nsort(起始地址，结束地址，比较函数) 可以通过修改对比函数，修改排序顺序或者实现结构体排序\n__gcd\n得到最大公约数\nint k=__gcd(n,m)\nmax(),min()\nmax(a,b);//返回最大值 min(a,b);//返回最小值\nswap()\nswap(a,b) 交换ab的值\nlower_bound(),upper_bound()\n二分查找，使用前需要先排好序\nlower_bound() 返回数组中第一个大于等于x的数的地址\nupper_bound() 返回数组中第一个大于x的数的地址\nreverse()\n倒置\nreverse(a.begin(),a.end())\nfind()\n//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10， //若存在返回其在向量中的位置 find(a.begin(),a.end(),10);\nnext_permutation(),prev_permutation()\n全排列函数。next_permutation(num,num+n)函数是对数组num中的前n个元素进行全排列，同时并改变num数组的值。数组中的数必须先升序排序\n#include #include using namespace std; int main() { int num[3]={1,2,3}; do { cout\u003c\u003cnum[0]\u003c\u003c\" \"\u003c\u003cnum[1]\u003c\u003c\" \"\u003c\u003cnum[2]\u003c\u003cendl; }while(next_permutation(num,num+3)); return 0; } 123 132 213 231 312 321 ----\u003e\u003e\u003e不断增大的全排列，并且是不断交换数组中的值 队列 queue 初始化\nqueue p\npriority_queue q; //默认是大根堆\n//定义小根堆\n小根堆：priority_queue \u003c类型,vecoter \u003c类型\u003e,greater \u003c类型» 变量名\n关于大根堆小根堆\n#include #include #include using namespace std; struct Pair { int id; string data; }; bool operator\u003c(Pair p1,Pair p2){ return p1.id\u003cp2.id; } int main() { //大根堆 priority_queue\u003cPair\u003e tmp; tmp.push({3,\"a\"}); tmp.push({2,\"b\"}); cout\u003c\u003ctmp.top().data;//结果为a } ////////////////// struct Pair { int id; string data; }; bool operator\u003c(Pair p1,Pair p2){ return p1.id\u003ep2.id; } int main() { //小根堆 priority_queue\u003cPair\u003e tmp; tmp.push({3,\"a\"}); tmp.push({2,\"b\"}); cout\u003c\u003ctmp.top().data;//结果为b } size\n返回队列长度\nempty\n判断队列是否为空\npush\n往对尾插入元素\npop\n把对头元素弹出队列\nfront,back\nq.front()返回队头元素，back返回队尾元素\n栈 stack 初始化\nstack s\nsize\n返回栈长度\npush\n往栈顶放入元素\ntop\n返回栈顶元素\npop\n弹出栈顶元素\n双向队列 deque 初始化\ndeque dq;\n常用函数\ndq.size(); //返回这个双端队列的长度 dq.empty(); //返回这个队列是否为空，空则返回true，非空则返回false dq.clear(); //清空这个双端队列 dq.front(); //返回第一个元素 dq.back(); //返回最后一个元素 dq.push_back(); //向最后插入一个元素 dq.pop_back(); //弹出最后一个元素 dq.push_front(); //向队首插入一个元素 dq.pop_front();//弹出第一个元素 dq.begin(); //双端队列的第0个数 dq.end(); //双端队列的最后一个的数的后面一个数 string 字符串库 初始化\nstring a=“ac”\nsubstr（）\na.substr(2,5) 从第三个字符开始，取5个字符\nc_str()\ns.c_str() 返回s的头指针\npush_back()和insert()\na.push_back(‘a’) 在尾部插入一个字符\nstring str2=“hello”; string s2=“weakhaha”; str2.insert(0,s2,1,3); //将字符串s2从下标为1的e开始数3个字符，分别是eak，插入原串的下标为0的字符h前\nsize()length()\n都是返回数组字母个数，都是返回的无符号整型，要加减先转化为int型\nmemset\n可以用于对数组空间快速赋值\nint a[5];\nmemset(a,0,sizeof(a));\nstrncpy 和strcpy\nstrcpy(string, str1); 把str字符串复制到string上\nstrncpy(string, str1，n) ; 把str字符串前n个字符复制到string上\nstrcat和strncat\n将两字符串拼接到一起\nstrcmp\n字符串比较。相同返回0，大于为1，小于为-1.区分大小写。不区分大小写用stricmp\nunordered_map 初始化\n#include unordered_map string—-\u003e int\nunordered_map是一个将key和value关联起来的容器，它可以高效的根据单个key值查找对应的value。 key值是唯一的，查询单独key效率高于map，map会自动进行排序\n遍历\n可以利用vector类似的auto，遍历方式\n#include #include using namespace std; int main() { string key=\"123\"; int value=4; unordered_map\u003cstring, int\u003e unomap;//创建一个key为string类型，value为int类型的unordered_map unomap.emplace(key, value);//使用变量方式，插入一个元素 unomap.emplace(\"456\", 7);//也可以直接写上key和value的值 cout\u003c\u003cunomap[\"123\"];//通过key值来访问value cout\u003c\u003cendl; for(auto x:unomap)//遍历整个map，输出key及其对应的value值 cout\u003c\u003cx.first\u003c\u003c\" \"\u003c\u003cx.second\u003c\u003cendl; for(auto x:unomap)//遍历整个map，并根据其key值，查看对应的value值 cout\u003c\u003cunomap[x.first]\u003c\u003cendl; } 删除，查找\nerase(key)\nfind(key) 都是通过的key\ncmath ceil\n向下取整，返回相同的数据类型，并不是返回int\nfloor\n向上取整，返回相同的数据类型，并不是返回int\nAcwing 826.单链表 数组模拟链表，普通指针链表，每次开辟结点需要new()动态分配，当数据量大，会造成耗费大量时间，可能会超时。\nAcwing 827.双向链表 同样是采用数组模拟，节省时间。\n设置头尾哨兵，不存在删除边界的问题\nAcwing 828 829，模拟栈和队列 利用数组，栈只需要一个指针，队列需要两个\nAcwing 836.并查集 1.将两个元素合并\n2.询问两个元素是否在同一集合中\n每一个集合用有一棵树来表示,树根编号是整个集合的编号。每个节点存储他的父节点，p[x]表示x的父节点\n优化：路径压缩\nAcwing 840.模拟散列表（哈希表） 哈希冲突解决方法\n开放寻址法\n拉链法\n(194条消息) 一文快速入门哈希表_Iareges的博客-CSDN博客\n整数哈希 h(k)=(k mod m + m) mod m，m为槽的个数\n在拉链法中，设输入n个数，m的取值为大于等于n且最接近n的质数，能有效降低哈希冲突的概率，需要另外开辟静态指针空间\n在开放地址法中，设输入n个数，m的取值为大于等于 2n(3n)且最接近2n的质数，无需其余空间\nmemset 函数解读\n常用于数组初始化，是对字节而言的，void *memset(void *str, int c, size_t n)\n对于str所指内存块中的每一个字节，设置成为c\nAcwing 841.字符串哈希 任何一个字符串不能映射成0 鉴定使用经验值是不会出现冲突的，p进制的p为131或者13331，mod 2^64，使用无符号longlong可以避免取模 核心思想是把字符串看成p进制数\nchar str[N];.//n为字符串最大长度 unsigned long long h[N],p[N]; 加入读入一个长度为m的字符串，则str 1-m 保存字符串，h 1-m保存各个字串的哈希值，p保存的是不同位上的权值 即p的x次方。\nAcwing 789. 二分查找 (194条消息) 还不会二分查找？看这一篇就够了_Iareges的博客-CSDN博客\n模板一 我们最终要找的边界是一个性质在右半区符合，在左半区不符合的性质。我们要找符合的右半区的左边界点。判断check（mid）,如果mid符合条件Mid是在右半区符合性质的半区中。要找左边界点的范围则更新为r = mid（包含Mid）。如果mid不符合条件，我们要找符合性质的左端点则l = mid + 1（已经确定mid是不符合的就从mid+1开始算）\n模板二 我们最终找的边界是一个性质在右半区不符合，在左半区符合的性质。并找到符合性质的左半区的右边界点。对mid进行判断来获得结果：如果mid符合条件，则mid就在左半区，那么我们要找的右边界点就可以更新为（mid,r）l = mid。 如果mid不满足条件，则mid必然在右半区间，而我们要找的符合要求的左半区间性质的右端点就是（l,mid-1）。r = mid - 1;\n模板二要防止死循环：当 r-l == 1,mid =(2l+1)/2=l(向下取整)。若check（mid）为真，则更新后的区间仍为[l，r]，没有变化陷入死循环;而mid = (r +l + 1)/2 = r，则若为真，更新完是[r,r]，退出循环；若为假，更新完则为[l,l];\nAcwing 905.区间选点 vector\nvector 是一个封装了动态大小数组的顺序容器，可以存放各类数据对象\n顺序序列，动态数组\n包含在库中\n主要函数：end()，begin()，clear()，push_back()，insert()，size()\npair\npair 是将2个数据组合成一组数据 常用到 typedef pair PII；将两个int组合在一起，避免写结构体\n包含在****库中\n访问第一个数据用 xx.first，第二个数据用xx.second\nvoid sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp); first：数组的起始地址。 last：数组结束地址。（数组中最后一个元素的下一个地址） comp：自定义排序函数，默认升序。 Acwing 842.排列数字 把搜索顺序看成一棵树，每个叶结点就是一种全排列\nAcwing 846. 树的重心 树是特殊的图，树的存储—-\u003e图的存储\n无向图 可以看成有向图具有双向边\n有向图的存储\n邻接矩阵\n二维数组，g [n][n] ，n个节点的图。g[a][b]表示点a到点b是否有链接，有权重则数值为权重\n邻接表\n每一个点开一个链表。存储指向的点，一般采用邻接表存储\n#include #include using namespace std; const int N=100010,M=N*2; int h[N],e[M],ne[M],idx; void add(int a,int b) { e[idx]=b; //数值保存 ne[idx]=h[a]; //先连 h[a]=idx; //再断 idx++;//idx往后移 } int main() { memset(h,-1,sizeof(h)); //先把所有节点指向-1 return 0; } ",
+  "wordCount" : "3824",
+  "inLanguage": "en",
+  "datePublished": "2023-04-05T18:26:34+08:00",
+  "dateModified": "2023-04-05T18:26:34+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Bounniey"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bounniey.github.io/posts/tech/%E7%AE%97%E6%B3%95/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Bounniey's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://bounniey.github.io/img/site.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    (function () {
+        let  arr,reg = new RegExp("(^| )"+"change-themes"+"=([^;]*)(;|$)");
+        if(arr = document.cookie.match(reg)) {
+        } else {
+            if (new Date().getHours() >= 19 || new Date().getHours() < 6) {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            } else {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            }
+        }
+    })()
+
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://bounniey.github.io/" accesskey="h" title="Home (Alt + H)">
+            <img src="https://bounniey.github.io/img/bounniey.png" alt="logo" aria-label="logo"
+                 height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://bounniey.github.io/search" title="🔍 搜索 (Alt &#43; /)" accesskey=/>
+                <span>🔍 搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/" title="🏠 主页">
+                <span>🏠 主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/posts" title="📚 文章">
+                <span>📚 文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/tags" title="🧩 标签">
+                <span>🧩 标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/archives/" title="⏱️ 时间轴">
+                <span>⏱️ 时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/about" title="🙋🏻‍♂️ 关于">
+                <span>🙋🏻‍♂️ 关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://bounniey.github.io/links" title="🤝 友链">
+                <span>🤝 友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main page">
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+</style>
+
+<article class="post-single">
+    <div id="single-content">
+        <header class="post-header">
+            <div class="breadcrumbs"><a href="https://bounniey.github.io/">🏠 主页</a>&nbsp;»&nbsp;<a href="https://bounniey.github.io/posts/">📚文章</a>&nbsp;»&nbsp;<a href="https://bounniey.github.io/posts/tech/">技术</a></div>
+            <h1 class="post-title">
+                算法
+            </h1>
+            <div class="post-description">
+                acwing听的一些算法题
+            </div>
+            <div class="post-meta">
+
+<style>
+    i[id*="post_meta_style"] {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px 0;
+    }
+
+    .parent-post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        opacity: 0.8;
+    }
+</style>
+
+<span class="parent-post-meta">
+    <span id="post_meta_style_1">
+        <span class="fa fa-calendar-check-o"></span>
+        <span>2023-04-05
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    
+    
+    
+    
+    
+    
+    
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3824字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Bounniey
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://bounniey.github.io/tags/%E7%AE%97%E6%B3%95/" style="color: var(--secondary)!important;">算法</a>
+            </span>
+        </span>
+    </span>
+</span>
+<span style="opacity: 0.8;">
+                    <span id="post_meta_style_7">
+                        &nbsp;&nbsp;
+                        <span class="fa fa-eye" ></span>
+                        <span>
+                            <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+                            &nbsp;&nbsp;
+                        </span>
+                    </span>
+                    <span id="post_meta_style_8">
+                        <span class="fa fa-commenting-o"></span>
+                        <span>
+                            <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js"></script>
+                            <script>
+                                let url = document.documentURI
+                                
+                                let dnsUrl = "https://bounniey.github.io/"
+                                let urlSplit = url.split(dnsUrl)
+                                let finalUrl = urlSplit[1]
+                                if (finalUrl[0] !== '/') {
+                                    finalUrl = '/'+finalUrl
+                                }
+                                twikoo.getCommentsCount({
+                                    envId:  null , 
+                                region:  null , 
+                                urls: [ 
+                                    
+                                    finalUrl,
+                                ],
+                                    includeReply: false 
+                                }).then(function (res) {
+                                    let count = res[0].count
+                                    const obj = document.getElementById("comment_count");
+                                    obj.innerText = count
+                                    
+                                    
+                                    
+                                }).catch(function (err) {
+                                    
+                                    console.error(err);
+                                });
+                            </script>
+                            <span id="comment_count"></span>
+                        </span>
+                    </span>
+                </span>
+
+</div>
+        </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">文章目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%b8%b8%e7%94%a8%e5%ba%93%e5%87%bd%e6%95%b0%e5%88%97%e8%a1%a8" aria-label="常用库函数列表">常用库函数列表</a><ul>
+                        
+                <li>
+                    <a href="#%e5%a4%b4%e6%96%87%e4%bb%b6" aria-label="头文件">头文件</a></li>
+                <li>
+                    <a href="#vector%e5%8f%af%e5%8f%98%e6%95%b0%e7%bb%84" aria-label="vector[可变数组]">vector[可变数组]</a></li>
+                <li>
+                    <a href="#pair-%e6%8d%86%e7%bb%91%e6%88%90%e5%af%b9" aria-label="pair [捆绑成对]">pair [捆绑成对]</a></li>
+                <li>
+                    <a href="#algorithm%e5%b8%b8%e7%94%a8%e7%ae%97%e6%b3%95%e5%87%bd%e6%95%b0" aria-label="Algorithm[常用算法函数]">Algorithm[常用算法函数]</a></li>
+                <li>
+                    <a href="#%e9%98%9f%e5%88%97-queue" aria-label="队列 queue">队列 queue</a></li>
+                <li>
+                    <a href="#%e6%a0%88-stack" aria-label="栈 stack">栈 stack</a></li>
+                <li>
+                    <a href="#%e5%8f%8c%e5%90%91%e9%98%9f%e5%88%97-deque" aria-label="双向队列 deque">双向队列 deque</a></li>
+                <li>
+                    <a href="#string-%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%ba%93" aria-label="string 字符串库">string 字符串库</a></li>
+                <li>
+                    <a href="#unordered_map" aria-label="unordered_map">unordered_map</a></li>
+                <li>
+                    <a href="#cmath" aria-label="cmath">cmath</a></li></ul>
+                </li>
+                <li>
+                    <a href="#acwing-826%e5%8d%95%e9%93%be%e8%a1%a8" aria-label="Acwing 826.单链表">Acwing 826.单链表</a></li>
+                <li>
+                    <a href="#acwing-827%e5%8f%8c%e5%90%91%e9%93%be%e8%a1%a8" aria-label="Acwing 827.双向链表">Acwing 827.双向链表</a></li>
+                <li>
+                    <a href="#acwing-828-829%e6%a8%a1%e6%8b%9f%e6%a0%88%e5%92%8c%e9%98%9f%e5%88%97" aria-label="Acwing 828 829，模拟栈和队列">Acwing 828 829，模拟栈和队列</a></li>
+                <li>
+                    <a href="#acwing-836%e5%b9%b6%e6%9f%a5%e9%9b%86" aria-label="Acwing 836.并查集">Acwing 836.并查集</a></li>
+                <li>
+                    <a href="#acwing-840%e6%a8%a1%e6%8b%9f%e6%95%a3%e5%88%97%e8%a1%a8%e5%93%88%e5%b8%8c%e8%a1%a8" aria-label="Acwing 840.模拟散列表（哈希表）">Acwing 840.模拟散列表（哈希表）</a></li>
+                <li>
+                    <a href="#acwing-841%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%93%88%e5%b8%8c" aria-label="Acwing 841.字符串哈希">Acwing 841.字符串哈希</a></li>
+                <li>
+                    <a href="#acwing-789-%e4%ba%8c%e5%88%86%e6%9f%a5%e6%89%be" aria-label="Acwing 789. 二分查找">Acwing 789. 二分查找</a></li>
+                <li>
+                    <a href="#acwing-905%e5%8c%ba%e9%97%b4%e9%80%89%e7%82%b9" aria-label="Acwing 905.区间选点">Acwing 905.区间选点</a></li>
+                <li>
+                    <a href="#acwing-842%e6%8e%92%e5%88%97%e6%95%b0%e5%ad%97" aria-label="Acwing 842.排列数字">Acwing 842.排列数字</a></li>
+                <li>
+                    <a href="#acwing-846-%e6%a0%91%e7%9a%84%e9%87%8d%e5%bf%83" aria-label="Acwing 846. 树的重心">Acwing 846. 树的重心</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+        <div class="post-content"><h1 id="常用库函数列表">常用库函数列表<a hidden class="anchor" aria-hidden="true" href="#常用库函数列表">#</a></h1>
+<h2 id="头文件">头文件<a hidden class="anchor" aria-hidden="true" href="#头文件">#</a></h2>
+<p>在算法竞赛中常常设计到各种库函数，头文件一句即可引入较多<code>常用头文件</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span></code></pre></div><p>其中包括iosteam，vector，utility，algorithm等，以下对这些库常用的函数进行讲解</p>
+<h2 id="vector可变数组">vector[可变数组]<a hidden class="anchor" aria-hidden="true" href="#vector可变数组">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a;<span style="color:#75715e">//定义一个vector  未初始化 输出&gt;0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(<span style="color:#ae81ff">3</span>);<span style="color:#75715e">//定义一个长度为3的vector  未初始化 输出&gt;0 0 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">3</span>); <span style="color:#75715e">//定义一个长度为10，且每个数赋值为3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//将向量b中从下标0 1 2（共三个）的元素赋值给a，a的类型为int型
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//它的初始化不和数组一样 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>a(b.begin(),b.begin<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div></li>
+<li>
+<p>遍历方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> a;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; i <span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        a.push_back(i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//三种遍历vector的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> a.size(); i <span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> a[i] <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> a.begin(); i <span style="color:#f92672">!=</span> a.end(); i <span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">*</span>i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//C++11的新语法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> x : a) {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#f92672">&lt;&lt;</span> x <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout <span style="color:#f92672">&lt;&lt;</span> endl;  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>size()</p>
+<blockquote>
+<p>a.size()， 返回元素个数</p>
+</blockquote>
+</li>
+<li>
+<p>empty()</p>
+<blockquote>
+<p>a.empty()  判断a是否为空，空则返回true，返回bool值</p>
+</blockquote>
+</li>
+<li>
+<p>front(),back()</p>
+<blockquote>
+<p>a.front() 返回第一个元素</p>
+<p>a.back() 返回组后一个元素</p>
+</blockquote>
+</li>
+<li>
+<p>push_back(),pop_back()</p>
+<blockquote>
+<p>a.push_back() 在a的最后一个向量中插入一个元素</p>
+<p>a.pop_back() 删除a的最后一个元素</p>
+</blockquote>
+</li>
+<li>
+<p>begin(),end()</p>
+<blockquote>
+<p>a.begin() 获取向量a的起始地址  a.begin()+2  表示a[2]的地址</p>
+<p>a.end() 获取向量a的结束地址</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="pair-捆绑成对">pair [捆绑成对]<a hidden class="anchor" aria-hidden="true" href="#pair-捆绑成对">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<p>类似于两个元素的结构体</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">//俩种方法初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pair<span style="color:#f92672">&lt;</span>string,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> p(<span style="color:#e6db74">&#34;hello&#34;</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pair<span style="color:#f92672">&lt;</span>string,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> p
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> make_pair(<span style="color:#e6db74">&#34;hello&#34;</span>,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> PII
+</span></span></code></pre></div></li>
+<li>
+<p>first(),second()</p>
+<blockquote>
+<p>p.first() 取第一个元素</p>
+<p>p.second() 取第二个元素</p>
+</blockquote>
+</li>
+<li>
+<p>make_pair()</p>
+<blockquote>
+<p>初始化一个pair</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="algorithm常用算法函数">Algorithm[常用算法函数]<a hidden class="anchor" aria-hidden="true" href="#algorithm常用算法函数">#</a></h2>
+<ul>
+<li>
+<p>sort()</p>
+<blockquote>
+<p>实现从大到小排序</p>
+<p>sort(起始地址，结束地址，比较函数) 可以通过修改对比函数，修改排序顺序或者实现结构体排序</p>
+</blockquote>
+</li>
+<li>
+<p>__gcd</p>
+<blockquote>
+<p>得到最大公约数</p>
+<p>int k=__gcd(n,m)</p>
+</blockquote>
+</li>
+<li>
+<p>max(),min()</p>
+<blockquote>
+<p>max(a,b);//返回最大值
+min(a,b);//返回最小值</p>
+</blockquote>
+</li>
+<li>
+<p>swap()</p>
+<blockquote>
+<p>swap(a,b) 交换ab的值</p>
+</blockquote>
+</li>
+<li>
+<p>lower_bound(),upper_bound()</p>
+<blockquote>
+<p>二分查找，使用前需要先排好序</p>
+<p>lower_bound() 返回数组中第一个大于等于x的数的地址</p>
+<p>upper_bound() 返回数组中第一个大于x的数的地址</p>
+</blockquote>
+</li>
+<li>
+<p>reverse()</p>
+<blockquote>
+<p>倒置</p>
+<p>reverse(a.begin(),a.end())</p>
+</blockquote>
+</li>
+<li>
+<p>find()</p>
+<blockquote>
+<p>//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，
+//若存在返回其在向量中的位置
+find(a.begin(),a.end(),10);</p>
+</blockquote>
+</li>
+<li>
+<p>next_permutation(),prev_permutation()</p>
+<blockquote>
+<p>全排列函数。next_permutation(num,num+n)函数是对数组num中的前n个元素进行全排列，同时并改变num数组的值。数组中的数必须先升序排序</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> num[<span style="color:#ae81ff">3</span>]<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  cout<span style="color:#f92672">&lt;&lt;</span>num[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">&lt;&lt;</span>num[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">&lt;&lt;</span>num[<span style="color:#ae81ff">2</span>]<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>}<span style="color:#66d9ef">while</span>(next_permutation(num,num<span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>));
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">123</span> <span style="color:#ae81ff">132</span> <span style="color:#ae81ff">213</span> <span style="color:#ae81ff">231</span> <span style="color:#ae81ff">312</span> <span style="color:#ae81ff">321</span> <span style="color:#f92672">----&gt;&gt;&gt;</span><span style="color:#960050;background-color:#1e0010">不断增大的全排列，并且是不断交换数组中的值</span>
+</span></span></code></pre></div></blockquote>
+</li>
+</ul>
+<h2 id="队列-queue">队列 queue<a hidden class="anchor" aria-hidden="true" href="#队列-queue">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<blockquote>
+<p>queue <int> p</p>
+<p>priority_queue <int> q; <em>//默认是大根堆</em></p>
+<p><em>//定义小根堆</em></p>
+<p>小根堆：priority_queue &lt;类型,vecoter &lt;类型&gt;,greater &lt;类型&raquo; 变量名</p>
+</blockquote>
+</li>
+<li>
+<p>关于大根堆小根堆</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Pair</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span> string data;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;</span>(Pair p1,Pair p2){
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> p1.id<span style="color:#f92672">&lt;</span>p2.id;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">//大根堆
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> priority_queue<span style="color:#f92672">&lt;</span>Pair<span style="color:#f92672">&gt;</span> tmp;
+</span></span><span style="display:flex;"><span> tmp.push({<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#34;a&#34;</span>});
+</span></span><span style="display:flex;"><span> tmp.push({<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#34;b&#34;</span>});
+</span></span><span style="display:flex;"><span> cout<span style="color:#f92672">&lt;&lt;</span>tmp.top().data;<span style="color:#75715e">//结果为a
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//////////////////
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Pair</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">int</span> id;
+</span></span><span style="display:flex;"><span> string data;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#66d9ef">operator</span><span style="color:#f92672">&lt;</span>(Pair p1,Pair p2){
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">return</span> p1.id<span style="color:#f92672">&gt;</span>p2.id;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">//小根堆
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> priority_queue<span style="color:#f92672">&lt;</span>Pair<span style="color:#f92672">&gt;</span> tmp;
+</span></span><span style="display:flex;"><span> tmp.push({<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">&#34;a&#34;</span>});
+</span></span><span style="display:flex;"><span> tmp.push({<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#34;b&#34;</span>});
+</span></span><span style="display:flex;"><span> cout<span style="color:#f92672">&lt;&lt;</span>tmp.top().data;<span style="color:#75715e">//结果为b
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div></blockquote>
+</li>
+<li>
+<p>size</p>
+<blockquote>
+<p>返回队列长度</p>
+</blockquote>
+</li>
+<li>
+<p>empty</p>
+<blockquote>
+<p>判断队列是否为空</p>
+</blockquote>
+</li>
+<li>
+<p>push</p>
+<blockquote>
+<p>往对尾插入元素</p>
+</blockquote>
+</li>
+<li>
+<p>pop</p>
+<blockquote>
+<p>把对头元素弹出队列</p>
+</blockquote>
+</li>
+<li>
+<p>front,back</p>
+<blockquote>
+<p>q.front()返回队头元素，back返回队尾元素</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="栈-stack">栈 stack<a hidden class="anchor" aria-hidden="true" href="#栈-stack">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<blockquote>
+<p>stack <int> s</p>
+</blockquote>
+</li>
+<li>
+<p>size</p>
+<blockquote>
+<p>返回栈长度</p>
+</blockquote>
+</li>
+<li>
+<p>push</p>
+<blockquote>
+<p>往栈顶放入元素</p>
+</blockquote>
+</li>
+<li>
+<p>top</p>
+<blockquote>
+<p>返回栈顶元素</p>
+</blockquote>
+</li>
+<li>
+<p>pop</p>
+<blockquote>
+<p>弹出栈顶元素</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="双向队列-deque">双向队列 deque<a hidden class="anchor" aria-hidden="true" href="#双向队列-deque">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<blockquote>
+<p>deque<int> dq;</p>
+</blockquote>
+</li>
+<li>
+<p>常用函数</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>dq.size(); <span style="color:#75715e">//返回这个双端队列的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.empty(); <span style="color:#75715e">//返回这个队列是否为空，空则返回true，非空则返回false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.clear(); <span style="color:#75715e">//清空这个双端队列
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.front(); <span style="color:#75715e">//返回第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.back(); <span style="color:#75715e">//返回最后一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.push_back(); <span style="color:#75715e">//向最后插入一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.pop_back(); <span style="color:#75715e">//弹出最后一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.push_front(); <span style="color:#75715e">//向队首插入一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.pop_front();<span style="color:#75715e">//弹出第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.begin(); <span style="color:#75715e">//双端队列的第0个数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>dq.end(); <span style="color:#75715e">//双端队列的最后一个的数的后面一个数
+</span></span></span></code></pre></div></blockquote>
+</li>
+</ul>
+<h2 id="string-字符串库">string 字符串库<a hidden class="anchor" aria-hidden="true" href="#string-字符串库">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<blockquote>
+<p>string a=&ldquo;ac&rdquo;</p>
+</blockquote>
+</li>
+<li>
+<p>substr（）</p>
+<blockquote>
+<p>a.substr(2,5) 从第三个字符开始，取5个字符</p>
+</blockquote>
+</li>
+<li>
+<p>c_str()</p>
+<blockquote>
+<p>s.c_str() 返回s的头指针</p>
+</blockquote>
+</li>
+<li>
+<p>push_back()和insert()</p>
+<blockquote>
+<p>a.push_back(&lsquo;a&rsquo;) 在尾部插入一个字符</p>
+<p>string str2=&ldquo;hello&rdquo;;    string s2=&ldquo;weakhaha&rdquo;;    str2.insert(0,s2,1,3); <em>//将字符串s2从下标为1的e开始数3个字符，分别是eak，插入原串的下标为0的字符h前</em></p>
+</blockquote>
+</li>
+<li>
+<p>size()length()</p>
+<blockquote>
+<p>都是返回数组字母个数，都是返回的无符号整型，要加减先转化为int型</p>
+</blockquote>
+</li>
+<li>
+<p>memset</p>
+<blockquote>
+<p>可以用于对数组空间快速赋值</p>
+<p>int a[5];</p>
+<p>memset(a,0,sizeof(a));</p>
+</blockquote>
+</li>
+<li>
+<p>strncpy 和strcpy</p>
+<blockquote>
+<p>strcpy(string, str1); 把str字符串复制到string上</p>
+<p>strncpy(string, str1，n) ; 把str字符串前n个字符复制到string上</p>
+</blockquote>
+</li>
+<li>
+<p>strcat和strncat</p>
+<blockquote>
+<p>将两字符串拼接到一起</p>
+</blockquote>
+</li>
+<li>
+<p>strcmp</p>
+<blockquote>
+<p>字符串比较。相同返回0，大于为1，小于为-1.区分大小写。不区分大小写用stricmp</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="unordered_map">unordered_map<a hidden class="anchor" aria-hidden="true" href="#unordered_map">#</a></h2>
+<ul>
+<li>
+<p>初始化</p>
+<blockquote>
+<p>#include &lt;unorder_map&gt;</p>
+<p>unordered_map &lt;string,int&gt;  string&mdash;-&gt; int</p>
+<p><strong>unordered_map是一个将key和value关联起来的容器，它可以高效的根据单个key值查找对应的value。</strong> key值是唯一的，查询单独key效率高于map，map会自动进行排序</p>
+</blockquote>
+</li>
+<li>
+<p>遍历</p>
+<blockquote>
+<p>可以利用vector类似的auto，遍历方式</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unordered_map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	string key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;123&#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> value<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>	unordered_map<span style="color:#f92672">&lt;</span>string, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> unomap;<span style="color:#75715e">//创建一个key为string类型，value为int类型的unordered_map
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	unomap.emplace(key, value);<span style="color:#75715e">//使用变量方式，插入一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	unomap.emplace(<span style="color:#e6db74">&#34;456&#34;</span>, <span style="color:#ae81ff">7</span>);<span style="color:#75715e">//也可以直接写上key和value的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	cout<span style="color:#f92672">&lt;&lt;</span>unomap[<span style="color:#e6db74">&#34;123&#34;</span>];<span style="color:#75715e">//通过key值来访问value
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	cout<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> x:unomap)<span style="color:#75715e">//遍历整个map，输出key及其对应的value值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		cout<span style="color:#f92672">&lt;&lt;</span>x.first<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;  &#34;</span><span style="color:#f92672">&lt;&lt;</span>x.second<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span> x:unomap)<span style="color:#75715e">//遍历整个map，并根据其key值，查看对应的value值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		cout<span style="color:#f92672">&lt;&lt;</span>unomap[x.first]<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>删除，查找</p>
+<blockquote>
+<p>erase(key)</p>
+<p>find(key)  都是通过的key</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="cmath">cmath<a hidden class="anchor" aria-hidden="true" href="#cmath">#</a></h2>
+<ul>
+<li>
+<p>ceil</p>
+<blockquote>
+<p>向下取整，返回相同的数据类型，并不是返回int</p>
+</blockquote>
+</li>
+<li>
+<p>floor</p>
+<blockquote>
+<p>向上取整，返回相同的数据类型，并不是返回int</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="acwing-826单链表">Acwing 826.单链表<a hidden class="anchor" aria-hidden="true" href="#acwing-826单链表">#</a></h1>
+<p>数组模拟<code>链表</code>，普通指针链表，每次开辟结点需要new()<code>动态分配</code>，当数据量大，会造成耗费大量时间，可能会超时。</p>
+<h1 id="acwing-827双向链表">Acwing 827.双向链表<a hidden class="anchor" aria-hidden="true" href="#acwing-827双向链表">#</a></h1>
+<p>同样是采用数组模拟，节省时间。</p>
+<p>设置头尾哨兵，不存在删除边界的问题</p>
+<h1 id="acwing-828-829模拟栈和队列">Acwing 828 829，模拟栈和队列<a hidden class="anchor" aria-hidden="true" href="#acwing-828-829模拟栈和队列">#</a></h1>
+<p>利用数组，栈只需要一个指针，队列需要两个</p>
+<h1 id="acwing-836并查集">Acwing 836.并查集<a hidden class="anchor" aria-hidden="true" href="#acwing-836并查集">#</a></h1>
+<blockquote>
+<p>1.将两个元素合并</p>
+</blockquote>
+<blockquote>
+<p>2.询问两个元素是否在同一集合中</p>
+</blockquote>
+<p>每一个集合用有一棵树来表示,树根编号是整个集合的编号。每个节点存储他的父节点，p[x]表示x的父节点</p>
+<p><strong>优化：路径压缩</strong></p>
+<h1 id="acwing-840模拟散列表哈希表">Acwing 840.模拟散列表（哈希表）<a hidden class="anchor" aria-hidden="true" href="#acwing-840模拟散列表哈希表">#</a></h1>
+<p>哈希冲突解决方法</p>
+<blockquote>
+<p>开放寻址法</p>
+<p>拉链法</p>
+<p><a href="https://blog.csdn.net/raelum/article/details/128793474">(194条消息) 一文快速入门哈希表_Iareges的博客-CSDN博客</a></p>
+</blockquote>
+<p>整数哈希 h(k)=(k mod m + m) mod m，m为槽的个数</p>
+<p>在拉链法中，设输入n个数，m的取值为大于等于n且最接近n的<strong>质数</strong>，能有效降低哈希冲突的概率，需要另外开辟静态指针空间</p>
+<p>在开放地址法中，设输入n个数，m的取值为大于等于 2n(3n)且最接近2n的<strong>质数</strong>，无需其余空间</p>
+<blockquote>
+<p>memset 函数解读</p>
+<p>常用于数组初始化，是对字节而言的，void *memset(void *str, int c, size_t n)</p>
+<p>对于str所指内存块中的<strong>每一个字节</strong>，设置成为c</p>
+</blockquote>
+<h1 id="acwing-841字符串哈希">Acwing 841.字符串哈希<a hidden class="anchor" aria-hidden="true" href="#acwing-841字符串哈希">#</a></h1>
+<ol>
+<li>任何一个字符串不能映射成0</li>
+<li>鉴定使用经验值是不会出现冲突的，p进制的p为131或者13331，mod 2^64，使用无符号longlong可以避免取模</li>
+</ol>
+<p>核心思想是把字符串看成p进制数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">char</span> str[N];.<span style="color:#75715e">//n为字符串最大长度
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> h[N],p[N];
+</span></span></code></pre></div><p>加入读入一个长度为m的字符串，则str 1-m 保存字符串，h 1-m保存各个字串的哈希值，p保存的是不同位上的权值 即p的x次方。</p>
+<h1 id="acwing-789-二分查找">Acwing 789. 二分查找<a hidden class="anchor" aria-hidden="true" href="#acwing-789-二分查找">#</a></h1>
+<blockquote>
+<p><a href="https://blog.csdn.net/raelum/article/details/128687109">(194条消息) 还不会二分查找？看这一篇就够了_Iareges的博客-CSDN博客</a></p>
+</blockquote>
+<p><img loading="lazy" src="1.png" alt=""  />
+</p>
+<ul>
+<li>
+<p>模板一
+我们最终要找的边界是一个性质在右半区符合，在左半区不符合的性质。我们要找符合的右半区的左边界点。判断check（mid）,如果mid符合条件Mid是在右半区符合性质的半区中。要找左边界点的范围则更新为r = mid（包含Mid）。如果mid不符合条件，我们要找符合性质的左端点则l = mid + 1（已经确定mid是不符合的就从mid+1开始算）</p>
+</li>
+<li>
+<p>模板二
+我们最终找的边界是一个性质在右半区不符合，在左半区符合的性质。并找到符合性质的左半区的右边界点。对mid进行判断来获得结果：如果mid符合条件，则mid就在左半区，那么我们要找的右边界点就可以更新为（mid,r）l = mid。
+如果mid不满足条件，则mid必然在右半区间，而我们要找的符合要求的左半区间性质的右端点就是（l,mid-1）。r = mid - 1;</p>
+</li>
+<li>
+<p>模板二要防止死循环：当 r-l == 1,mid =(2l+1)/2=l(向下取整)。若check（mid）为真，则更新后的区间仍为[l，r]，没有变化陷入死循环;而mid = (r +l + 1)/2 =  r，则若为真，更新完是[r,r]，退出循环；若为假，更新完则为[l,l];</p>
+</li>
+</ul>
+<h1 id="acwing-905区间选点">Acwing 905.区间选点<a hidden class="anchor" aria-hidden="true" href="#acwing-905区间选点">#</a></h1>
+<ul>
+<li>
+<p>vector</p>
+<blockquote>
+<p>vector 是一个封装了动态大小数组的顺序容器，可以存放各类数据对象</p>
+<p><strong>顺序序列</strong>，<strong>动态数组</strong></p>
+<p>包含在<vector>库中</p>
+<p>主要函数：end()，begin()，clear()，push_back()，insert()，size()</p>
+</blockquote>
+</li>
+<li>
+<p>pair</p>
+<blockquote>
+<p>pair 是将2个数据组合成一组数据 常用到 typedef pair&lt;int,int&gt; PII；将两个int组合在一起，避免写结构体</p>
+<p>包含在**<utility>**库中</p>
+<p>访问第一个数据用 xx.first，第二个数据用xx.second</p>
+</blockquote>
+</li>
+<li>
+<p>&lt;algorithm&gt;</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span> (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+</span></span></code></pre></div><ol>
+<li><code>first</code>：数组的起始地址。</li>
+<li><code>last</code>：数组结束地址。（数组中最后一个元素的下一个地址）</li>
+<li><code>comp</code>：自定义排序函数，默认升序。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="acwing-842排列数字">Acwing 842.排列数字<a hidden class="anchor" aria-hidden="true" href="#acwing-842排列数字">#</a></h1>
+<p>把搜索顺序看成一棵树，每个叶结点就是一种全排列</p>
+<p><img loading="lazy" src="2.png" alt=""  />
+</p>
+<h1 id="acwing-846-树的重心">Acwing 846. 树的重心<a hidden class="anchor" aria-hidden="true" href="#acwing-846-树的重心">#</a></h1>
+<ul>
+<li>
+<p>树是特殊的图，树的存储&mdash;-&gt;图的存储</p>
+</li>
+<li>
+<p>无向图  可以看成有向图具有双向边</p>
+</li>
+<li>
+<p>有向图的存储</p>
+<blockquote>
+<ol>
+<li>
+<p>邻接矩阵</p>
+<p>二维数组，g [n][n] ，n个节点的图。g[a][b]表示点a到点b是否有链接，有权重则数值为权重</p>
+</li>
+<li>
+<p>邻接表</p>
+<p>每一个点开一个链表。存储指向的点，一般采用邻接表存储</p>
+</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> N<span style="color:#f92672">=</span><span style="color:#ae81ff">100010</span>,M<span style="color:#f92672">=</span>N<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> h[N],e[M],ne[M],idx;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">int</span> a,<span style="color:#66d9ef">int</span> b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    e[idx]<span style="color:#f92672">=</span>b;  <span style="color:#75715e">//数值保存
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ne[idx]<span style="color:#f92672">=</span>h[a]; <span style="color:#75715e">//先连
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    h[a]<span style="color:#f92672">=</span>idx; <span style="color:#75715e">//再断
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    idx<span style="color:#f92672">++</span>;<span style="color:#75715e">//idx往后移
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    memset(h,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#66d9ef">sizeof</span>(h)); <span style="color:#75715e">//先把所有节点指向-1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+
+
+        </div>
+        <div class="post-reward">
+            <div style="padding: 0 0 0 0; margin: 0 0 0 0; width: 100%; font-size:16px; text-align: center;">
+                <div id="QR" style="opacity: 0;">
+                    <div id="wechat" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="wechat_qr" src="https://bounniey.github.io/img/wechat_pay.png" alt="wechat_pay"></a>
+                        <p>微信</p>
+                    </div>
+                    <div id="alipay" style="display: inline-block">
+                        <a class="fancybox" rel="group">
+                            <img id="alipay_qr" src="https://bounniey.github.io/img/alipay.png" alt="alipay"></a>
+                        <p>支付宝</p>
+                    </div>
+                </div>
+                <button id="rewardButton"
+                        onclick="
+                    var qr = document.getElementById('QR');
+                    if (qr.style.opacity === '0') {
+                        qr.style.opacity='1';
+                    } else {
+                        qr.style.opacity='0'
+                    }"
+                >
+                    <span>🧧 鼓励</span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="post-footer">
+            
+
+        </footer>
+    </div>
+
+<style>
+    .comments_details summary::marker {
+        font-size: 20px;
+        content: '👉展开评论';
+        color: var(--content);
+    }
+    .comments_details[open] summary::marker{
+        font-size: 20px;
+        content: '👇关闭评论';
+        color: var(--content);
+    }
+</style>
+
+
+<div>
+    <details class="comments_details">
+        <summary style="cursor: pointer; margin: 50px 0 20px 0;width: 130px;">
+            <span style="font-size: 20px;color: var(--content);">...</span>
+        </summary>
+        <div id="tcomment"></div>
+    </details>
+    <script src="https://cdn.staticfile.org/twikoo/1.5.8/twikoo.all.min.js">
+    </script>
+    <script>
+        twikoo.init({
+            envId:  null ,
+        el: "#tcomment",
+            lang: 'zh-CN',
+            region:  null ,
+        path: window.TWIKOO_MAGIC_PATH||window.location.pathname,
+        })
+    </script>
+</div>
+</article>
+</main>
+
+<footer class="footer">
+    <span>
+        &copy;
+        2022-2023
+        <a href="https://bounniey.github.io/" style="color:#939393;">Bounniey&#39;s Blog</a>
+    </span>
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        Visitors: <span id="busuanzi_value_site_uv"></span>
+        Views: <span id="busuanzi_value_site_pv"></span>
+    </span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <span class="topInner">
+        <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z"/>
+        </svg>
+        <span id="read_progress"></span>
+    </span>
+</a>
+
+<script>
+    document.addEventListener('scroll', function (e) {
+        const readProgress = document.getElementById("read_progress");
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        readProgress.innerText = ((scrollTop / (scrollHeight - clientHeight)).toFixed(2) * 100).toFixed(0);
+    })
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    let mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        (function() {
+            document.cookie = "change-themes" + "="+ escape ("false");
+        })()
+
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    });
+</script>
+
+<script>
+    document.body.addEventListener('copy', function (e) {
+        if (window.getSelection().toString() && window.getSelection().toString().length > 50) {
+            let clipboardData = e.clipboardData || window.clipboardData;
+            if (clipboardData) {
+                e.preventDefault();
+                let htmlData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Bounniey's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                let textData = window.getSelection().toString() +
+                    '\r\n\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Bounniey's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                clipboardData.setData('text/html', htmlData);
+                clipboardData.setData('text/plain', textData);
+            }
+        }
+    });
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = '📄复制';
+
+        function copyingDone() {
+            copybutton.innerText = '👌🏻已复制!';
+            setTimeout(() => {
+                copybutton.innerText = '📄复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                let text = codeblock.textContent +
+                    '\r\n————————————————\r\n' +
+                    '版权声明：本文为「'+"Bounniey's Blog"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' +
+                '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(text);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) {}
+            selection.removeRange(range);
+        });
+
+        let language = codeblock.className.replaceAll("language-", "")
+        let macTool = document.createElement("div")
+        let macTool1 = document.createElement("div")
+        let macTool2 = document.createElement("div")
+        let macTool3 = document.createElement("div")
+        let languageType = document.createElement("div")
+        languageType.innerText = language
+        macTool.setAttribute('class', 'mac-tool')
+        macTool1.setAttribute('class', 'mac bb1')
+        macTool2.setAttribute('class', 'mac bb2')
+        macTool3.setAttribute('class', 'mac bb3')
+        languageType.setAttribute('class', 'language-type')
+        macTool.appendChild(macTool1)
+        macTool.appendChild(macTool2)
+        macTool.appendChild(macTool3)
+        macTool.appendChild(languageType)
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+            container.appendChild(macTool)
+        }
+    });
+</script>
+
+<script>
+    $("code[class^=language] ").on("mouseover", function () {
+        if (this.clientWidth < this.scrollWidth) {
+            $(this).css("width", "135%")
+            $(this).css("border-top-right-radius", "var(--radius)")
+        }
+    }).on("mouseout", function () {
+        $(this).css("width", "100%")
+        $(this).css("border-top-right-radius", "unset")
+    })
+</script>
+</body>
+
+</html>
